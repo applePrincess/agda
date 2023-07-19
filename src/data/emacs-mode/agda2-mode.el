@@ -1695,6 +1695,7 @@ Removes any text properties, escapes newlines, double quotes,
 etc., adds surrounding double quotes, and converts non-ASCII
 characters to the \\xNNNN notation used in Haskell strings."
   (let ((pp-escape-newlines t)
+        (pp-default-function #'pp-28)
         (s2 (copy-sequence s)))
     (set-text-properties 0 (length s2) nil s2)
     (mapconcat 'agda2-char-quote (pp-to-string s2) "")))
